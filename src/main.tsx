@@ -149,11 +149,11 @@ function Home({
         </p>
 
         <div className="actions">
-          <a className="button" href={`/${siteConfig.defaultCitySlug}`}>
-            Apri {siteConfig.defaultCityName}
-          </a>
-          <a className="button secondary" href="/publish">
+          <a className="button" href="/publish">
             Pubblica annuncio
+          </a>
+          <a className="button secondary" href="#annunci">
+            Esplora annunci
           </a>
         </div>
       </section>
@@ -174,7 +174,7 @@ function Home({
         </div>
       </section>
 
-      <section>
+      <section id="annunci">
         <div className="sectionTitleRow">
           <div>
             <h2>Annunci demo</h2>
