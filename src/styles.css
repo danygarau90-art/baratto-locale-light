@@ -381,6 +381,19 @@ textarea {
   font-size: 14px;
 }
 
+.inactiveBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 10px;
+  border: 1px solid #e3d7c7;
+  border-radius: 8px;
+  background: #f7f2e9;
+  color: #7a6d5c;
+  font-size: 14px;
+  font-weight: 800;
+}
+
 .safetyNote {
   margin-bottom: 0;
 }
@@ -455,6 +468,10 @@ textarea {
   margin-left: 8px;
   font-weight: 800;
   color: #173d2a;
+}
+
+.inlineWarning {
+  margin: 0;
 }
 
 .dangerButton {

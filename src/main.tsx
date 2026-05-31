@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import { ItemCard } from "./components/ItemCard";
 import { categories, cities, getCityName, siteConfig } from "./lib/config";
 import { mockItems } from "./lib/mock-items";
+import { cleanTelegramUsername, getTelegramUrl } from "./lib/telegram";
 import type { Item } from "./lib/types";
 import "./styles.css";
 
@@ -47,15 +48,6 @@ function loadStoredReports() {
 
 function saveStoredReports(reports: DemoReport[]) {
   localStorage.setItem(LOCAL_REPORTS_KEY, JSON.stringify(reports));
-}
-
-function cleanTelegramUsername(value: FormDataEntryValue | string | null) {
-  return String(value || "")
-    .trim()
-    .replace(/^@+/, "")
-    .replace(/^https?:\/\/t\.me\//i, "")
-    .replace(/^t\.me\//i, "")
-    .replace(/\/+$/, "");
 }
 
 function isKnownCitySlug(slug: string) {
@@ -460,7 +452,7 @@ function ItemDetail({ items }: { items: Item[] }) {
     );
   }
 
-  const tg = cleanTelegramUsername(item.telegramUsername);
+  const telegramUrl = getTelegramUrl(item.telegramUsername);
 
   return (
     <main className="container narrow">
@@ -500,15 +492,21 @@ function ItemDetail({ items }: { items: Item[] }) {
         </div>
 
         <div className="actions">
-          <a
-            className="button"
-            href={`https://t.me/${tg}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <MessageCircle size={18} />
-            Contatta su Telegram
-          </a>
+          {telegramUrl ? (
+            <a
+              className="button"
+              href={telegramUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MessageCircle size={18} />
+              Contatta su Telegram
+            </a>
+          ) : (
+            <div className="warning inlineWarning">
+              Contatto Telegram non disponibile per questo annuncio demo.
+            </div>
+          )}
           <a className="button ghost" href={`/report?item=${item.id}`}>
             Segnala
           </a>

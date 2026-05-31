@@ -1,18 +1,10 @@
 import { MessageCircle } from "lucide-react";
 import { getCityName } from "../lib/config";
+import { getTelegramUrl } from "../lib/telegram";
 import type { Item } from "../lib/types";
 
-function cleanTelegramUsername(username?: string) {
-  return (username || "")
-    .replace(/^@+/, "")
-    .replace(/^https?:\/\/t\.me\//i, "")
-    .replace(/^t\.me\//i, "")
-    .trim();
-}
-
 export function ItemCard({ item }: { item: Item }) {
-  const telegramUsername = cleanTelegramUsername(item.telegramUsername);
-  const telegramUrl = telegramUsername ? `https://t.me/${telegramUsername}` : "";
+  const telegramUrl = getTelegramUrl(item.telegramUsername);
 
   return (
     <article className="card itemCard">
@@ -50,10 +42,10 @@ export function ItemCard({ item }: { item: Item }) {
               rel="noreferrer"
             >
               <MessageCircle size={16} />
-              Telegram
+              Contatta su Telegram
             </a>
           ) : (
-            <span className="smallNote">Telegram non collegato</span>
+            <span className="inactiveBadge">Contatto demo non attivo</span>
           )}
         </div>
 
