@@ -12,7 +12,6 @@ const LOCAL_ITEMS_KEY = "baratto_locale_demo_items";
 const LOCAL_REPORTS_KEY = "baratto_locale_demo_reports";
 const ADMIN_DEMO_KEY =
   import.meta.env.VITE_ADMIN_DEMO_KEY || "baratto-demo-admin";
-const ADMIN_DEMO_URL = `/admin?key=${encodeURIComponent(ADMIN_DEMO_KEY)}`;
 
 type DemoReport = {
   id: string;
@@ -163,9 +162,6 @@ function Home({
           </a>
           <a className="button secondary" href="/publish">
             Pubblica annuncio
-          </a>
-          <a className="button ghost" href={ADMIN_DEMO_URL}>
-            Admin demo
           </a>
         </div>
       </section>
