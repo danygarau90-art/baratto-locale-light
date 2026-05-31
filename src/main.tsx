@@ -166,6 +166,11 @@ function Home({
         </div>
       </section>
 
+      <div className="notice demoNotice">
+        Demo pubblica: gli annunci creati ora vengono salvati solo nel tuo
+        browser. La bacheca condivisa tra utenti arriverà con il database.
+      </div>
+
       <section>
         <h2>Regioni disponibili</h2>
         <div className="chips">
@@ -357,6 +362,11 @@ function Publish({ onCreate }: { onCreate: (item: Item) => void }) {
           )}
         </div>
       )}
+
+      <div className="notice demoNotice">
+        In questa versione demo il tuo annuncio resta salvato solo su questo
+        dispositivo/browser.
+      </div>
 
       <form className="card form" onSubmit={submit}>
         <label>
@@ -656,6 +666,10 @@ function Admin({
           di produzione.
         </p>
       </section>
+
+      <div className="notice demoNotice">
+        Le segnalazioni mostrate qui sono solo quelle salvate in questo browser.
+      </div>
 
       <section className="adminStats">
         <div className="card statCard">

@@ -228,6 +228,10 @@ textarea {
   border-color: #ead298;
 }
 
+.demoNotice {
+  margin: 0 0 24px;
+}
+
 .textLink {
   display: block;
   margin-top: 16px;
